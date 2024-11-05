@@ -17,6 +17,9 @@ import NotFound from "./pages/NotFound";
 import Careers, { careersLoader } from "./pages/careers/Careers";
 import CareersDetails, {careerDetailsLoader} from "./pages/careers/CareersDetails";
 
+//ErrorElement
+import CareersError from "./pages/careers/CareersError"
+
 // layouts
 import RootLayout from "./layouts/RootLayout";
 import HelpLayout from "./layouts/HelpLayout"; 
@@ -34,15 +37,20 @@ const router = createBrowserRouter(
       </Route>
 
         {/* //Loader Example  fetch data in Careers.js*/}
-        <Route path="careers" element={<CareersLayout />}>
+        <Route path="careers" element={<CareersLayout /> } errorElement={<CareersError/>}>
         <Route 
           index 
           element={<Careers />} 
           loader={careersLoader} 
           //Loader inside Careers.js
+          // errorElement={<CareersError/>}
         />
         {/* //With parametres*/}
-       <Route path=":id" element={<CareersDetails />} loader={careerDetailsLoader}  />
+       <Route path=":id" 
+        element={<CareersDetails />} 
+        loader={careerDetailsLoader}
+        // errorElement={<CareersError/>}  
+       />
       </Route>
        
 
