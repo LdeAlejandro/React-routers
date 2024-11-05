@@ -12,6 +12,9 @@ import Contact from "./pages/help/Contact";
 import Faq from "./pages/help/Faq";
 import NotFound from "./pages/NotFound";
 
+//action
+import { contactAction } from "./pages/help/Contact";
+
 
 //pages and loaders
 import Careers, { careersLoader } from "./pages/careers/Careers";
@@ -33,7 +36,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="help" element={<HelpLayout />}>
         <Route path="faq" element={<Faq />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact" element={<Contact />} action={contactAction}/>
       </Route>
 
         {/* //Loader Example  fetch data in Careers.js*/}
