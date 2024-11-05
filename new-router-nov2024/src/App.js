@@ -12,8 +12,10 @@ import Contact from "./pages/help/Contact";
 import Faq from "./pages/help/Faq";
 import NotFound from "./pages/NotFound";
 
-//page and loader
+
+//pages and loaders
 import Careers, { careersLoader } from "./pages/careers/Careers";
+import CareersDetails, {careerDetailsLoader} from "./pages/careers/CareersDetails";
 
 // layouts
 import RootLayout from "./layouts/RootLayout";
@@ -38,9 +40,11 @@ const router = createBrowserRouter(
           element={<Careers />} 
           loader={careersLoader} 
           //Loader inside Careers.js
-          
         />
+        {/* //With parametres*/}
+       <Route path=":id" element={<CareersDetails />} loader={careerDetailsLoader}  />
       </Route>
+       
 
         {/* //404 not found route */}
       <Route path="*" element={<NotFound />} />
